@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 14:48:47 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/04 14:09:39 by ludumont         ###   ########.fr       */
+/*   Created: 2022/01/04 10:31:00 by ludumont          #+#    #+#             */
+/*   Updated: 2022/01/04 10:39:16 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
-	if (ft_isdigit(c) == 1 || ft_isalpha(c) == 1)
-		return (1);
-	else
-		return (0);	
-}
+	size_t srclen;
 
-/*
-int	main(void)
-{
-	int c = '!';
-	printf("%d\n", ft_isalnum(c));
-	printf("%d\n", isalnum(c));
-	return (0);
+	srclen = ft_strlen(src);
+	if (srclen + 1 < n)
+	{
+		ft_memcpy(dest, src, srclen);
+		dest[srclen] = '\0';
+	}
+	else if (n != 0)
+	{
+		ft_memcpy(dest, src, n - 1);
+		dest[n - 1] = '\0';
+	}
+	return (srclen);
 }
-*/

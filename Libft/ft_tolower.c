@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 14:48:47 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/04 14:09:39 by ludumont         ###   ########.fr       */
+/*   Created: 2022/01/04 10:59:13 by ludumont          #+#    #+#             */
+/*   Updated: 2022/01/04 13:48:32 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_tolower(int c)
 {
-	if (ft_isdigit(c) == 1 || ft_isalpha(c) == 1)
-		return (1);
-	else
-		return (0);	
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
+	return (c);
 }
 
 /*
-int	main(void)
+int main (void)
 {
-	int c = '!';
-	printf("%d\n", ft_isalnum(c));
-	printf("%d\n", isalnum(c));
+	int c = '1';
+	printf("%d\n", ft_tolower(c));
+	printf("%d\n", tolower(c));
 	return (0);
 }
 */

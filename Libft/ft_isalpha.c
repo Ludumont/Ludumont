@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 12:09:17 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/03 12:29:21 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/01/04 14:09:47 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	ft_isalpha(int c)
 		return (0);
 }
 
-#include <stdio.h>
-#include <ctype.h>
-
+/*
 int main(void)
 {
 	int c = 'Z';
@@ -30,3 +28,4 @@ int main(void)
 	printf("%d\n", ft_isalpha(c));
 	return (0);
 }
+*/
