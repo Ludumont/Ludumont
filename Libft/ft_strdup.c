@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 10:20:27 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 14:56:14 by ludumont         ###   ########.fr       */
+/*   Created: 2022/01/06 15:06:17 by ludumont          #+#    #+#             */
+/*   Updated: 2022/01/06 15:18:25 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strdup(const char *s)
 {
-	size_t			x;
-	unsigned char	*d;
-	unsigned char	*s;
+	char *ptr;
+	int length;
+	int i;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (dst == NULL && src == NULL)
-		return (0);
-	if (d > s && dst != src)
-	{
-		while (len--)
-		{
-			d[len] = s[len];
-		}
-	}
-	else if (d < s && dst != src)
-	{
-		x = 0;
-		while (x < len)
-		{
-			d[x] = s[x];
-			x++;
-		}
-	}
-	return (dst);
+	length = 0;
+	while (s[length])
+		length++;
+	ptr = (char *)malloc(sizeof(char) * length + 1);
+	if (ptr == '\0')
+		return (NULL);
+	i = -1;
+	while(i++ < length)
+		ptr[i] = s[i];
+	ptr[i] = '\0';
+	return (ptr);
 }

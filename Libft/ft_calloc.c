@@ -1,42 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 10:20:27 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 14:56:14 by ludumont         ###   ########.fr       */
+/*   Created: 2022/01/06 14:57:00 by ludumont          #+#    #+#             */
+/*   Updated: 2022/01/06 15:05:39 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_calloc(size_t tab, size_t size)
 {
-	size_t			x;
-	unsigned char	*d;
-	unsigned char	*s;
+	void *ptr;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
-	if (dst == NULL && src == NULL)
-		return (0);
-	if (d > s && dst != src)
-	{
-		while (len--)
-		{
-			d[len] = s[len];
-		}
-	}
-	else if (d < s && dst != src)
-	{
-		x = 0;
-		while (x < len)
-		{
-			d[x] = s[x];
-			x++;
-		}
-	}
-	return (dst);
+	ptr = malloc(tab * size);
+	if (ptr != 0)
+		ft_memset(ptr, 0, (tab * size)); 
+	return (ptr);	
 }
