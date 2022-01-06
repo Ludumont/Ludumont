@@ -3,35 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ludumont <ludumont@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:20:27 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/04 10:30:40 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/01/06 14:23:52 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char *dp;
-	const unsigned char *sp;
+	size_t			x;
+	unsigned char	*d;
+	unsigned char	*s;
 
-	if (!dest && !src)
-		return (0);
-	if (dest > src)
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if ((dst == NULL && src == NULL) || !dst)
+		return (NULL);
+	if (d > s && dst != src)
 	{
-		dp = dest + n;
-		sp = src + n;
-		while (n-- > 0)
-			*dp++ = *sp++;
+		while (len--)
+		{
+			d[len] = s[len];
+		}
 	}
-	else
+	else if (d < s && dst != src)
 	{
-		dp = dest;
-		sp = src;
-		while (n-- > 0)
-			*dp++ = *sp++;
+		x = 0;
+		while (x < len)
+		{
+			d[x] = s[x];
+			x++;
+		}
 	}
-	return (dest);
+	return (dst);
 }
