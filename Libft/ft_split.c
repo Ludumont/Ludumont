@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludumont <ludumont@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:11:17 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 16:22:29 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/01/06 16:32:52 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_malloc_s(char const *s, char c)
+static int	ft_mem_calc(char const *s, char c)
 {
-	int i;
-	int counter;
+	int	i;
+	int	counter;
 
 	i = 0;
 	counter = 0;
@@ -45,19 +45,18 @@ static char	*ft_write(char const *s, char c)
 	return (ft_substr(s, j, i));
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		counter;
 	char	**tab;
 
 	i = 0;
 	j = 0;
-	counter = 0;
 	if (s == NULL)
 		return (NULL);
-	if (!(tab = malloc((ft_malloc_s(s, c) + 2) * sizeof(char*))))
+	tab = malloc((ft_mem_calc(s, c) + 2) * sizeof(char *));
+	if (tab == NULL)
 		return (NULL);
 	while (s[i])
 	{
