@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:11:17 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 16:32:52 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/01/19 17:50:10 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,8 @@ static int	ft_mem_calc(char const *s, char c)
 	counter = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-		{
-			if (s[i - 1] != c)
-				counter++;
-			i++;
-		}
+		if (s[i++] == c)
+			counter++;
 		else
 			i++;
 	}
@@ -45,30 +41,49 @@ static char	*ft_write(char const *s, char c)
 	return (ft_substr(s, j, i));
 }
 
+char	**ft_free(char **tab, int j)
+{
+	while (j >= 0)
+	{
+		free(tab[j]);
+		j--;
+	}
+	free(tab);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	int		i;
 	int		j;
 	char	**tab;
 
-	i = 0;
 	j = 0;
 	if (s == NULL)
 		return (NULL);
-	tab = malloc((ft_mem_calc(s, c) + 2) * sizeof(char *));
-	if (tab == NULL)
+	printf("%i\n", ft_mem_calc(s, c));
+	tab = (char **)malloc((ft_mem_calc(s, c) + 1) * sizeof(char *));
+	if (!tab)
 		return (NULL);
-	while (s[i])
+	while (*s)
 	{
-		if (s[i] == c)
-			i++;
-		else if (s[i] && s[i] != c)
+		if (*s == c)
+			s++;
+		else if (*s && *s != c)
 		{
-			tab[j++] = ft_write(&s[i], c);
-			while (s[i] != c && s[i])
-				i++;
+			tab[j++] = ft_write(&*s, c);
+			if(tab[j - 1] == NULL)
+				return (ft_free(tab, j - 1));
+			while (*s != c && *s)
+				s++;
 		}
 	}
 	tab[j] = (NULL);
 	return (tab);
 }
+/*
+int main()
+{
+	ft_split(" test ", ' ');
+	return (0);
+}
+*/

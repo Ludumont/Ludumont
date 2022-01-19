@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:43:52 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 16:00:24 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/01/19 17:08:38 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = -1;
 	j = -1;
 	size = ft_strlen((char *)s1) + ft_strlen((char *)s2);
-	dest = (char *)malloc(sizeof(char *) * size + 1);
+	dest = (char *)malloc(sizeof(char) * size + 1);
 	if (dest == NULL)
 		return (0);
 	while (s1[++i])

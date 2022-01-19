@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 11:02:02 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/04 13:47:36 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/01/19 17:07:07 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 char	*ft_strchr(const char *s, int c)
 {
 	char *str;
+	unsigned char i;
 
+	i = (unsigned char) c;
 	str = (char *)s;
-	while (*str != c)
+	while (*str != i)
 	{
 		if (*str == '\0')
 			return (NULL);
