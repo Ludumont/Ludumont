@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludumont <ludumont@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 14:12:13 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 14:12:35 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:25:12 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int compteur;
+	unsigned int	i;
+	unsigned int	j;
+	unsigned int	compteur;
 
 	i = 0;
 	j = 0;

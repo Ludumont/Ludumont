@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:20:49 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 15:45:21 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:26:38 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t i;
-	char *dest;
+	size_t	i;
+	char	*dest;
 
 	if (s == NULL)
 		return (NULL);

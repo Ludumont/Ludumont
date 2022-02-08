@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 14:27:27 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 14:52:37 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:13:38 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ int	ft_signe(char c)
 
 int	ft_atoi(const char *str)
 {
-	int s;
-	long int v;
+	int			s;
+	long int	v;
 
 	s = 1;
 	v = 0;
-	while (*str && (*str == '\n' || *str == '\t' || *str == '\r' 
-		|| *str == ' ' || *str == '\f' || *str == '\v'))
+	while (*str && (*str == '\n' || *str == '\t' || *str == '\r'
+			|| *str == ' ' || *str == '\f' || *str == '\v'))
 		str++;
 	if (ft_signe(*str) && *str)
 	{
@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 	}
 	while (*str >= '0' && *str <= '9')
 	{
-		v = (v * 10) + (*str - '0'); 
+		v = (v * 10) + (*str - '0');
 		str++;
 	}
 	return (v * s);

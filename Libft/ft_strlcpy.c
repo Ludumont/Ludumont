@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 10:31:00 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/04 10:39:16 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:25:25 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
-	size_t srclen;
+	size_t	srclen;
 
 	srclen = ft_strlen(src);
 	if (srclen + 1 < n)

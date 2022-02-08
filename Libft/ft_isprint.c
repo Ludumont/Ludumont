@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 09:50:02 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/04 13:47:16 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:15:37 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isprint(int c)
 	if (c >= 32 && c <= 126)
 		return (1);
 	else
-		return (0);	
+		return (0);
 }
 
 /*

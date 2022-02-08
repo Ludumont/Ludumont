@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:01:39 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/06 16:09:07 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:31:20 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *dest;
-	size_t len;
+	char	*dest;
+	size_t	len;
 
 	len = 0;
-	if(!s1 || !set)
+	if (!s1 || !set)
 		return (0);
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;

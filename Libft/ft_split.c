@@ -6,42 +6,34 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 16:11:17 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/19 17:50:10 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:55:52 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_mem_calc(char const *s, char c)
+static int	ft_count_line(const char *str, char c)
 {
 	int	i;
-	int	counter;
+	int	line;
 
 	i = 0;
-	counter = 0;
-	while (s[i])
+	line = 0;
+	while (str[i])
 	{
-		if (s[i++] == c)
-			counter++;
-		else
+		while (str[i] == c)
 			i++;
+		if (str[i] && str[i] != c)
+		{
+			line++;
+			while (str[i] != c && str[i])
+				i++;
+		}
 	}
-	return (counter);
+	return (line);
 }
 
-static char	*ft_write(char const *s, char c)
-{
-	size_t			i;
-	unsigned int	j;
-
-	i = 0;
-	j = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	return (ft_substr(s, j, i));
-}
-
-char	**ft_free(char **tab, int j)
+static char	**ft_free(char **tab, int j)
 {
 	while (j >= 0)
 	{
@@ -49,37 +41,51 @@ char	**ft_free(char **tab, int j)
 		j--;
 	}
 	free(tab);
-	return (NULL);
+	return (tab);
 }
 
-char	**ft_split(char const *s, char c)
+static char	*ft_strsdup(char const *str, char c)
 {
-	int		j;
+	size_t			len;
+	unsigned int	start;
+	char			*dest;
+
+	len = 0;
+	start = 0;
+	while (str[len] && str[len] != c)
+		len++;
+	dest = ft_substr(str, start, len);
+	return (dest);
+}
+
+char	**ft_split(char const *str, char c)
+{
 	char	**tab;
+	int		j;
 
 	j = 0;
-	if (s == NULL)
+	if (str == NULL)
 		return (NULL);
-	printf("%i\n", ft_mem_calc(s, c));
-	tab = (char **)malloc((ft_mem_calc(s, c) + 1) * sizeof(char *));
-	if (!tab)
+	tab = malloc((ft_count_line(str, c) + 1) * sizeof(char *));
+	if (tab == NULL)
 		return (NULL);
-	while (*s)
+	while (*str)
 	{
-		if (*s == c)
-			s++;
-		else if (*s && *s != c)
+		while (*str == c)
+			str++;
+		if (*str != c && *str)
 		{
-			tab[j++] = ft_write(&*s, c);
-			if(tab[j - 1] == NULL)
+			tab[j++] = ft_strsdup(str, c);
+			if (tab[j - 1] == NULL)
 				return (ft_free(tab, j - 1));
-			while (*s != c && *s)
-				s++;
+			while (*str != c && *str)
+				str++;
 		}
 	}
 	tab[j] = (NULL);
 	return (tab);
 }
+
 /*
 int main()
 {

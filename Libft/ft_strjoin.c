@@ -6,7 +6,7 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 15:43:52 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/19 17:08:38 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:24:49 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *dest;
-	int i;
-	int j;
-	int size;
+	char	*dest;
+	int		i;
+	int		j;
+	int		size;
 
 	if (s1 == 0 || s2 == 0)
 		return (0);

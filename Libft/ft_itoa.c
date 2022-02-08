@@ -6,16 +6,15 @@
 /*   By: ludumont <ludumont@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 19:16:03 by ludumont          #+#    #+#             */
-/*   Updated: 2022/01/19 16:37:26 by ludumont         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:16:50 by ludumont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-int		ft_len(long nb)
+int	ft_len(long nb)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (nb <= 0)
@@ -24,18 +23,18 @@ int		ft_len(long nb)
 		i++;
 	}
 	while (nb > 0)
-		{
-			nb /= 10;
-			i++;
-		}
+	{
+		nb /= 10;
+		i++;
+	}
 	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	long nb;
-	int len;
-	char *ptr;
+	long	nb;
+	int		len;
+	char	*ptr;
 
 	nb = n;
 	len = ft_len(nb);
